@@ -536,7 +536,7 @@ pipeline {
 ## Learning Exercises Checklist
 
 ### Beginner
-- [ ] Install Jenkins locally via Docker
+- [x] Install Jenkins locally via Docker
 - [ ] Create a freestyle job that builds this project
 - [ ] Convert to a Pipeline job with a Jenkinsfile
 - [ ] Add environment variables to the pipeline
