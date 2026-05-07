@@ -1,32 +1,32 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs 'main'
-    }
-
-    environment {
-        HELLO = 'hello world!!'
-    }
-
     stages {
-        stage('Install') {
-            steps {
-                sh 'npm install'
-            }
-        }
+
         stage('Test') {
             parallel {
                 stage('Backend Tests') {
+                    agent {
+                        docker {
+                            image 'node:24-alpine'
+                        }
+                    }
                     steps {
                         dir('backend') {
+                            sh 'npm install'
                             sh 'npm run test'
                         }
                     }
                 }
                 stage('Frontend Tests') {
+                    agent {
+                        docker {
+                            image 'node:24-alpine'
+                        }
+                    }
                     steps {
                         dir('frontend') {
+                            sh 'npm install'
                             sh 'npm run test'
                         }
                     }
