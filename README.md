@@ -538,8 +538,8 @@ pipeline {
 ### Beginner
 - [x] Install Jenkins locally via Docker
 - [x] Create a freestyle job that builds this project
-- [ ] Convert to a Pipeline job with a Jenkinsfile
-- [ ] Add environment variables to the pipeline
+- [x] Convert to a Pipeline job with a Jenkinsfile
+- [x] Add environment variables to the pipeline
 
 ### Intermediate
 - [ ] Run backend and frontend tests in parallel
