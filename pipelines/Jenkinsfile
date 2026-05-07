@@ -7,7 +7,7 @@ pipeline {
             parallel {
                 stage('Backend Tests') {
                     agent {
-                        docker {
+                        dockerContainer {
                             image 'node:24-alpine'
                         }
                     }
@@ -20,7 +20,7 @@ pipeline {
                 }
                 stage('Frontend Tests') {
                     agent {
-                        docker {
+                        dockerContainer {
                             image 'node:24-alpine'
                         }
                     }
