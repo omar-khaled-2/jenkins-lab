@@ -6,10 +6,27 @@ pipeline {
     }
 
     stages {
-        stage('Build') {
+        stage('Install') {
             steps {
-                sh 'echo "${HELLO}"'
-
+                sh 'npm install'
+            }
+        }
+        stage('Test') {
+            parallel {
+                stage('Backend Tests') {
+                    steps {
+                        dir('backend') {
+                            sh 'npm run test'
+                        }
+                    }
+                }
+                stage('Frontend Tests') {
+                    steps {
+                        dir('frontend') {
+                            sh 'npm run test'
+                        }
+                    }
+                }
             }
         }
     }

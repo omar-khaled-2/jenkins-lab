@@ -542,7 +542,7 @@ pipeline {
 - [x] Add environment variables to the pipeline
 
 ### Intermediate
-- [ ] Run backend and frontend tests in parallel
+- [x] Run backend and frontend tests in parallel
 - [ ] Use Docker agents for builds
 - [ ] Implement post-build notifications (email/Slack)
 - [ ] Store and use credentials securely
