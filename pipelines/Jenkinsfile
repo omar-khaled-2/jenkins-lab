@@ -2,7 +2,7 @@ pipeline {
     // Run on any available Jenkins agent
     agent any
     options {
-        disableConcurrentBuilds()
+        disableConcurrentBuilds(abortPrevious: true)
     }
 
     stages {
