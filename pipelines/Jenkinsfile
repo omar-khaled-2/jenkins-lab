@@ -1,9 +1,15 @@
 pipeline {
     agent any
+
+    environment {
+        HELLO = 'hello world!!'
+    }
+
     stages {
         stage('Build') {
             steps {
-                sh 'echo "hello world"'
+                sh 'echo "${HELLO}"'
+
             }
         }
     }
