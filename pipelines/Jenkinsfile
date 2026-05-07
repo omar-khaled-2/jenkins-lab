@@ -1,12 +1,15 @@
 pipeline {
+    // Run on any available Jenkins agent
     agent any
 
     stages {
-
+        // Run backend and frontend tests in parallel using Docker containers
         stage('Test') {
             parallel {
+                // Run backend tests inside a Node.js Docker container
                 stage('Backend Tests') {
                     agent {
+                        // Use Docker container agent with Node.js 24 Alpine image
                         dockerContainer {
                             image 'node:24-alpine'
                         }
@@ -18,8 +21,10 @@ pipeline {
                         }
                     }
                 }
+                // Run frontend tests inside a Node.js Docker container
                 stage('Frontend Tests') {
                     agent {
+                        // Use Docker container agent with Node.js 24 Alpine image
                         dockerContainer {
                             image 'node:24-alpine'
                         }
