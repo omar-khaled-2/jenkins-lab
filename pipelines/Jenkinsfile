@@ -11,7 +11,6 @@ pipeline {
             agent {
                 // Use Docker container agent with Node.js 24 Alpine image
                 docker {
-                    label 'main'
                     image 'node:24-alpine'
                 }
             }
@@ -27,7 +26,6 @@ pipeline {
             agent {
                 // Use Docker container agent with Node.js 24 Alpine image
                 docker {
-                    label 'main'
                     image 'node:24-alpine'
                 }
             }

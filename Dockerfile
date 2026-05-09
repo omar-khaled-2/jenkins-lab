@@ -2,7 +2,6 @@ FROM jenkins/jenkins:lts
 
 USER root
 
-# Install Docker CLI
 RUN apt-get update && \
     apt-get install -y \
         apt-transport-https \
@@ -18,11 +17,8 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Add jenkins user to docker group
 RUN groupadd -f docker && \
     usermod -aG docker jenkins
 
-# Set label for built-in node
-COPY set-label.groovy /usr/share/jenkins/ref/init.groovy.d/set-label.groovy
 
 USER jenkins
