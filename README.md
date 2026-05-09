@@ -544,8 +544,8 @@ pipeline {
 ### Intermediate
 - [x] Run backend and frontend tests in parallel
 - [x] Use Docker agents for builds
-- [ ] Implement post-build notifications (email/Slack)
-- [ ] Store and use credentials securely
+- [x] Implement post-build notifications (email/Slack)
+- [x] Store and use credentials securely
 - [ ] Set up a multi-branch pipeline
 
 ### Advanced
