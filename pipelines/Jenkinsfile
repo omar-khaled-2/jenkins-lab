@@ -1,6 +1,6 @@
 pipeline {
-    // Run on any available Jenkins agent
-    agent any
+    // Run on the 'main' Jenkins agent
+    agent { label 'main' }
     options {
         disableConcurrentBuilds(abortPrevious: true)
     }
@@ -8,12 +8,6 @@ pipeline {
     stages {
         // Run backend and frontend tests sequentially using Docker containers
         stage('Backend Tests') {
-            agent {
-                // Use Docker container agent with Node.js 24 Alpine image
-                docker {
-                    image 'node:24-alpine'
-                }
-            }
             steps {
                 dir('backend') {
                     sh 'npm install'
@@ -23,12 +17,6 @@ pipeline {
         }
         // Run frontend tests inside a Node.js Docker container
         stage('Frontend Tests') {
-            agent {
-                // Use Docker container agent with Node.js 24 Alpine image
-                docker {
-                    image 'node:24-alpine'
-                }
-            }
             steps {
                 dir('frontend') {
                     sh 'npm install'
