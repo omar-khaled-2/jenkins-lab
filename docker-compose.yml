@@ -9,6 +9,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - JAVA_OPTS=-Djenkins.install.runSetupWizard=false
+    group_add:
+      - 956
 
 volumes:
   jenkins_home:
