@@ -549,7 +549,7 @@ pipeline {
 - [x] Set up a multi-branch pipeline
 
 ### Advanced
-- [ ] Create a shared library for common steps
+- [x] Create a shared library for common steps
 - [ ] Implement conditional builds based on changed files
 - [ ] Build Docker images for both services
 - [ ] Push images to a container registry
