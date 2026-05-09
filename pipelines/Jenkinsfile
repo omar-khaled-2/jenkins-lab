@@ -6,12 +6,50 @@ pipeline {
     options {
         disableConcurrentBuilds(abortPrevious: true)
     }
-
     stages {
-        // Run backend and frontend tests sequentially using Docker containers
-        stage('hello'){
+        stage("Detect Changes") {
             steps {
-                echo 'Hello, Jenkins!'
+                script {
+                    def backendChanged = false
+                    def frontendChanged = false
+                    def changes = currentBuild.rawBuild.changeSets
+                    changes.each { changeSet ->
+                        changeSet.items.each { item ->
+                            if (item.path.contains('backend/')) {
+                                backendChanged = true
+                            }
+                            if (item.path.contains('frontend/')) {
+                                frontendChanged = true
+                            }
+                        }
+                    }
+                    echo "Backend changed: ${backendChanged}"
+                    echo "Frontend changed: ${frontendChanged}"
+                    env.BACKEND_CHANGED = backendChanged
+                    env.FRONTEND_CHANGED = frontendChanged
+
+                }
+            }
+        }
+        // Run backend and frontend tests sequentially using Docker containers
+        parallel {
+            stage('Backend Tests') {
+                when {
+                    expression { env.BACKEND_CHANGED == 'true' }
+                }
+                steps {
+                    echo 'Running backend tests...'
+
+                }
+            }
+            stage('Frontend Tests') {
+                when {
+                    expression { env.FRONTEND_CHANGED == 'true' }
+                }
+                steps {
+                    echo 'Running frontend tests...'
+
+                }
             }
         }
     }
