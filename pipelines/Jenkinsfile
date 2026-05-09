@@ -1,3 +1,5 @@
+@Library('jenkins-lab') _
+
 pipeline {
     // Run on any available Jenkins agent
     agent any
