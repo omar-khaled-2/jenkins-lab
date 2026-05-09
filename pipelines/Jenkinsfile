@@ -15,10 +15,10 @@ pipeline {
     }
     post {
         success {
-            slackSend message: 'Build succeeded!', color: 'good'
+            notifySlack(is_success: true)
         }
         failure {
-            slackSend message: 'Build failed!', color: 'danger'
+            notifySlack(is_success: false)
         }
     }
 }
