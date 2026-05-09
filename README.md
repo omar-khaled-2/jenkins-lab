@@ -543,7 +543,7 @@ pipeline {
 
 ### Intermediate
 - [x] Run backend and frontend tests in parallel
-- [ ] Use Docker agents for builds
+- [x] Use Docker agents for builds
 - [ ] Implement post-build notifications (email/Slack)
 - [ ] Store and use credentials securely
 - [ ] Set up a multi-branch pipeline
