@@ -7,7 +7,7 @@ pipeline {
 
     stages {
         // Run backend and frontend tests sequentially using Docker containers
-        stages('hello'){
+        stage('hello'){
             steps {
                 echo 'Hello, Jenkins!'
             }
