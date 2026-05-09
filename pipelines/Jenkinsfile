@@ -10,7 +10,7 @@ pipeline {
         stage('Backend Tests') {
             agent {
                 // Use Docker container agent with Node.js 24 Alpine image
-                dockerContainer {
+                docker {
                     image 'node:24-alpine'
                 }
             }
@@ -25,7 +25,7 @@ pipeline {
         stage('Frontend Tests') {
             agent {
                 // Use Docker container agent with Node.js 24 Alpine image
-                dockerContainer {
+                docker {
                     image 'node:24-alpine'
                 }
             }
