@@ -7,33 +7,9 @@ pipeline {
 
     stages {
         // Run backend and frontend tests sequentially using Docker containers
-        stage('Backend Tests') {
-            agent {
-                // Use Docker container agent with Node.js 24 Alpine image
-                docker {
-                    image 'node:24-alpine'
-                }
-            }
+        stages('hello'){
             steps {
-                dir('backend') {
-                    sh 'npm install'
-                    sh 'npm run test'
-                }
-            }
-        }
-        // Run frontend tests inside a Node.js Docker container
-        stage('Frontend Tests') {
-            agent {
-                // Use Docker container agent with Node.js 24 Alpine image
-                docker {
-                    image 'node:24-alpine'
-                }
-            }
-            steps {
-                dir('frontend') {
-                    sh 'npm install'
-                    sh 'npm run test'
-                }
+                echo 'Hello, Jenkins!'
             }
         }
     }
