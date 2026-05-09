@@ -546,7 +546,7 @@ pipeline {
 - [x] Use Docker agents for builds
 - [x] Implement post-build notifications (email/Slack)
 - [x] Store and use credentials securely
-- [ ] Set up a multi-branch pipeline
+- [x] Set up a multi-branch pipeline
 
 ### Advanced
 - [ ] Create a shared library for common steps
